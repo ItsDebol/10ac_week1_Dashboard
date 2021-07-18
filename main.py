@@ -19,55 +19,47 @@ import streamlit as st
     #         turtle.forward(5)
 
 def main():
-    st.title("Users analytics in the Telecommunication Industry")
-    selection_type = st.sidebar.selectbox("Select analysis",("-","Customer overview", "User engagement","Experiance analysis","Satisfaction analysis"))
+    st.title("TEL CO user analytics")
+    selection_type = st.sidebar.selectbox("Select analysis",("-","Customer overview", "User engagement"))
     st.write('')
     st.write(selection_type)
     if(selection_type == "Customer overview" ):
-        int_selection_type = st.selectbox("Select what to overview" , ("-","Top 10 handsets used by the customers", "Top 3 handsets manufacturers", "Top 5 handsets per top 3 handsets manufacturer", "Univariant analysis", "Bivariant analysis against the total data"))
+        int_selection_type = st.selectbox("Select what to overview" , ("-","Top 10 handsets used by the customers", 
+        "Top 3 handsets manufacturers", "Top 5 handsets per top 3 handsets manufacturer",  
+        "distribution functions of applications used "))
         if(int_selection_type == "Top 10 handsets used by the customers"):
-            st.image('images/1.PNG')
+            st.image('overview/top handset types.PNG')
         elif(int_selection_type == "Top 3 handsets manufacturers"):
-            st.image('images/2.PNG')
+            st.image('overview/top.PNG')
         elif(int_selection_type == "Top 5 handsets per top 3 handsets manufacturer"):
-            st.image('images/3.PNG')
-        elif(int_selection_type == "Univariant analysis"):
-            st.write("Histogram plot of Duration")
-            st.image('images/Duration ms.png')
-            st.write("Histogram plot of Email")
-            st.image('images/email.png')
-            st.write("Histogram plot of Game")
-            st.image('images/game.png')
-            st.write("Histogram plot of Youtube")
-            st.image('images/youtube.png')      
-        elif(int_selection_type == "Bivariant analysis against the total data"):
-            st.write('Between the application and the total data')
-            st.image('images/bivariant.PNG')
-            st.write('Between each applications')
-            st.image("images/among each other.png")
-
+            st.image('overview/top apple.PNG')
+            st.image('overview/top samsung.PNG')
+            st.image('overview/top huawei.PNG')
+        elif(int_selection_type == "distribution functions of applications used "):
+            st.write("Apps used by users via TEL CO")
+            st.image('overview/social_media.png')
+            st.image('overview/email.png')
+            st.image('overview/gaming.png')
+            st.image('overview/youtube.png')
+            st.image('overview/google.png')
+            st.image('overview/netflix.png')
+            st.image('overview/durms.png')                           
     elif(selection_type == "User engagement"):
-        int_selection_type_user = st.selectbox("Select User engagement",("-","Variables and datatypes","Comparision of customers by session frequency","Comparision of customers by total duration","Comparision of customers by total data","Most used applications",))
-        if(int_selection_type_user == "Variables and datatypes"):
-            st.image('images/data_type1.PNG')
-            st.image('images/data_type2.PNG')
-        elif(int_selection_type_user == "Comparision of customers by session frequency"):
-            st.image('images/customersSession.PNG')
-        elif(int_selection_type_user ==  "Comparision of customers by total duration"):
-            st.image('images/customersTotalduration.PNG')
-        elif(int_selection_type_user == "Comparision of customers by total data"):
-            st.image('images/customersData.PNG')
+        int_selection_type_user = st.selectbox("Select User engagement",("-","top 10 customers with the hight usage of data",
+        "session durations ","kmean and decile","Most used applications",))
+        if(int_selection_type_user == "top 10 customers with the hight usage of data"):
+            st.image('user engagement/top bytes.PNG')
+        elif(int_selection_type_user == "session durations "):
+            st.image('user engagement/xdr.PNG')
+            st.image('user engagement/total duration.PNG')
+        elif(int_selection_type_user ==  "kmean and decile"):
+            st.image('user engagement/kmmean.PNG')
+            st.image('user engagement/decile.PNG')      
         elif(int_selection_type_user == "Most used applications"):
-            st.image('images/top users.PNG')
+            st.image('user engagement/top 5 apps.PNG')
+        
 
-    elif(selection_type == "Experiance analysis"):
-        st.image('images/totaltcprtn.PNG')
-
-    elif(selection_type == "Satisfaction analysis"):
-        st.write("""
-        # Sorry Nothing to display
-        Under analysis... 
-        """)
+    
 # initialization()
 main()
 
